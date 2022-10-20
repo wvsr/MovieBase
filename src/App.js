@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NoPage from './pages/404'
+import Layout from './pages/Layout'
+import Trending from './pages/Trending'
+import Genres from './pages/Genres'
+import Tv from './pages/Tv'
+import Movies from './pages/Movies'
+import MovieItem from './pages/MovieItem'
+import TvItem from './pages/TvItem'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Trending />} />
+          <Route path='genres' element={<Genres />} />
+          <Route path='movies' element={<Movies />} />
+          <Route path='movie/:id' element={<MovieItem type='movie' />} />
+          <Route path='tv' element={<Tv />} />
+          <Route path='tv/:id' element={<MovieItem type='tv' />} />
+          {/* <Route path='tv/:id' element={<TvItem />} /> */}
+          <Route path='*' element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
