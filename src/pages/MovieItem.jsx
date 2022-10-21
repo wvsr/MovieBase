@@ -8,9 +8,11 @@ export default function MovieItem({ type }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // fetch movie or series details
         let reqMovie = await fetch(MovieById(type, id))
         let resMovie = await reqMovie.json()
         setMovieDetails(resMovie)
+        // fetch artist list
         let reqArtist = await fetch(ArtistDetails(type, id))
         let resArtist = await reqArtist.json()
         setArtistList(resArtist)
@@ -20,7 +22,7 @@ export default function MovieItem({ type }) {
     }
     fetchData()
   }, [])
-  console.log(ArtistList)
+  console.log(MovieDetails)
 
   const {
     original_title,
@@ -32,6 +34,7 @@ export default function MovieItem({ type }) {
     runtime,
     video,
     homepage,
+    original_name,
   } = MovieDetails
 
   function ParaMeter(props) {
@@ -63,7 +66,9 @@ export default function MovieItem({ type }) {
           />
         </div>
         <div className='mt-6 sm:mt-0 w-full'>
-          <h2 className='text-4xl md:text-6xl lg:text-7xl'>{original_title}</h2>
+          <h2 className='text-4xl md:text-6xl lg:text-7xl'>
+            {original_title || original_name}
+          </h2>
           <ParaMeter component={overview}>Description</ParaMeter>
           <ParaMeter component={original_language}>Language</ParaMeter>
           <ParaMeter component={homepage}>Website:</ParaMeter>

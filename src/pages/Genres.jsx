@@ -23,7 +23,7 @@ export default function Genres() {
 
   function Pill({ text, id, type }) {
     return (
-      <div className='rounded-full border border-gray-800 px-3 py-1 text-lg'>
+      <div className='rounded-full border border-gray-800 py-1 px-3 text-lg'>
         <Link
           to={`${type}/${text.replaceAll(' ', '-').toLowerCase()}`}
           state={{ id: id }}
@@ -35,7 +35,7 @@ export default function Genres() {
   }
 
   return (
-    <div className='container p-2 mx-auto'>
+    <div className='container py-2 px-4 mx-auto'>
       <div className=' bg-blue-100 px-3 py-5 rounded-lg mt-5'>
         <h1 className='py-3 text-xl font-bold'>Movie Genres</h1>
         <div className='flex flex-wrap gap-3'>
