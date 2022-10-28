@@ -4,9 +4,12 @@ import { MdMovie } from 'react-icons/md'
 import { NavLink, Link } from 'react-router-dom'
 export default function Header() {
   const [showNav, setShowNav] = useState(false)
+  const hideNav = () => {
+    setShowNav(false)
+  }
   return (
     <>
-      <header className='bg-gray-900 text-white py-1.5 md:py-2.5 top-0 sticky w-full'>
+      <header className='bg-gray-900 text-white py-1.5 md:py-2.5 top-0 sticky w-full z-50'>
         <nav className='container mx-auto flex w-full items-center'>
           <div id='logo' className='flex-1 font-bold ml-3 '>
             <Link to='/' className='flex gap-2 items-center max-w-fit'>
@@ -34,18 +37,28 @@ export default function Header() {
             </button>
           </div>
         </nav>
+        {showNav && (
+          <div className='py-4 bg-gray-900 text-white md:hidden '>
+            <ul className='px-5 list-none flex flex-col text-xl space-y-2'>
+              <NavLink onClick={hideNav} to='/'>
+                Trending
+              </NavLink>
+              <NavLink onClick={hideNav} to='movies'>
+                Movies
+              </NavLink>
+              <NavLink onClick={hideNav} to='tv'>
+                Tv series
+              </NavLink>
+              <NavLink onClick={hideNav} to='search'>
+                Search
+              </NavLink>
+              <NavLink onClick={hideNav} to='genres'>
+                Genres
+              </NavLink>
+            </ul>
+          </div>
+        )}
       </header>
-      {showNav && (
-        <div className='py-4 bg-gray-900 text-white md:hidden '>
-          <ul className='px-5 list-none flex flex-col text-xl space-y-2'>
-            <NavLink to='/'>Trending</NavLink>
-            <NavLink to='movies'>Movies</NavLink>
-            <NavLink to='tv'>Tv series</NavLink>
-            <NavLink to='search'>Search</NavLink>
-            <NavLink to='genres'>Genres</NavLink>
-          </ul>
-        </div>
-      )}
     </>
   )
 }

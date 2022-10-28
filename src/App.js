@@ -8,7 +8,6 @@ import Genres from './pages/Genres'
 import Tv from './pages/Tv'
 import Movies from './pages/Movies'
 import MovieItem from './pages/MovieItem'
-import TvItem from './pages/TvItem'
 
 function App() {
   return (

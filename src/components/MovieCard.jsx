@@ -11,7 +11,7 @@ export default function MovieCard({ img, title, id, type }) {
               : 'https://upload.wikimedia.org/wikipedia/commons/f/f9/No-image-available.jpg'
           }
           alt={title}
-          className='w-full h-auto mb-3'
+          className='w-full h-auto mb-3 hover:scale-[1.03] transition-transform duration-150 ease-linear'
         />
         <p>{title}</p>
       </Link>
