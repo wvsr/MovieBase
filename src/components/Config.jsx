@@ -21,6 +21,11 @@ const GenresList = (type) =>
 const MovieById = (media_type, id) =>
   `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${api_key}&language=en-US`
 
+const SearchMovie = (media_type, text, page) =>
+  `https://api.themoviedb.org/3/search/${
+    media_type ? 'tv' : 'movie'
+  }?api_key=${api_key}&language=en-US&query=${text}&page=${page}&include_adult=false`
+
 export {
   api_key,
   TrendingMovie,
@@ -30,4 +35,5 @@ export {
   YoutubeVideo,
   GenresList,
   MovieById,
+  SearchMovie,
 }

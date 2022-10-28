@@ -8,6 +8,7 @@ import Genres from './pages/Genres'
 import Tv from './pages/Tv'
 import Movies from './pages/Movies'
 import MovieItem from './pages/MovieItem'
+import Search from './pages/Search'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='tv' element={<Tv />} />
           <Route path='tv/:id' element={<MovieItem type='tv' />} />
           {/* <Route path='tv/:id' element={<TvItem />} /> */}
+          <Route path='search' element={<Search />} />
           <Route path='*' element={<NoPage />} />
         </Route>
       </Routes>
