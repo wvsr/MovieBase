@@ -40,7 +40,7 @@ export default function Trending() {
           />
         </div>
       )}
-      <div className='container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+      <div className='container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-14'>
         {TvList.map(({ id, name, title, poster_path }) => (
           <MovieCard
             key={id}

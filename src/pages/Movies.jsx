@@ -15,7 +15,9 @@ export default function Movies() {
       try {
         setIsLoading(true)
         let res = await fetch(DiscoverMovie(paginate))
-        let data = res.json().then(({ results }) => setMovieList(results))
+        let data = res.json().then(({ results }) => {
+          setMovieList(results)
+        })
       } catch (error) {
         console.log('error', error)
       }
@@ -39,7 +41,7 @@ export default function Movies() {
           />
         </div>
       )}
-      <div className='container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+      <div className='container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 min-h-screen mt-14'>
         {movieList.map(({ id, name, title, poster_path }) => (
           <MovieCard
             key={id}
@@ -51,8 +53,8 @@ export default function Movies() {
         ))}
       </div>
       {!isLoading && (
-        <nav className='flex justify-center mb-16 mt-5'>
-          <ul class='inline-flex -space-x-px'>
+        <nav className='flex justify-center mb-16 mt-5 mx-2'>
+          <ul class='flex flex-wrap gap-y-5'>
             <li>
               <a
                 class='py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700'

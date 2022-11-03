@@ -53,7 +53,7 @@ export default function Genres() {
           />
         </div>
       )}
-      <div className='container py-2 px-4 mx-auto'>
+      <div className='container py-2 px-4 mx-auto mt-14'>
         <div className=' bg-blue-100 px-3 py-5 rounded-lg mt-5'>
           <h1 className='py-3 text-xl font-bold'>Movie Genres</h1>
           <div className='flex flex-wrap gap-3'>
