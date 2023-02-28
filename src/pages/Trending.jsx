@@ -24,8 +24,6 @@ export default function Trending() {
     fetchData()
   }, [paginate])
 
-  console.log(trendingList)
-
   return (
     <>
       {isLoading && (
